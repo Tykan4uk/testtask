@@ -8,7 +8,7 @@
 
         public DateTime DateTime { get; set; }
 
-        public TimeSpan Duration { get; set; }
+        public DateTime EndDateTime { get; set; }
 
         public Auditorium Auditorium { get; set; }
 
