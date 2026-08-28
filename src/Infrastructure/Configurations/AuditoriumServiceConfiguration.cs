@@ -10,6 +10,13 @@ namespace Infrastructure.Configurations
         {
             builder.HasKey(x => x.Id);
 
+            builder.HasIndex(x => new
+                {
+                    x.AuditoriumId,
+                    x.ServiceId
+                })
+                .IsUnique();
+
             builder.Property(e => e.Id).ValueGeneratedOnAdd();
 
             builder.HasOne(x => x.Auditorium)
