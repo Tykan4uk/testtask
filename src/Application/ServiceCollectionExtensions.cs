@@ -1,4 +1,7 @@
-﻿using Infrastructure;
+﻿using System.Reflection;
+using Application.Interfaces;
+using Application.Services;
+using Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -13,7 +16,10 @@ namespace Application
                 throw new ArgumentNullException(nameof(configuration));
             }
 
+            services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddInfrastructure(configuration);
+
+            services.AddTransient<IAuditoriumService, AuditoriumService>();
 
             return services;
         }
