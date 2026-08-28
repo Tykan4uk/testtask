@@ -20,6 +20,13 @@ namespace Infrastructure.Repositories
             return result;
         }
 
+        public async Task<Auditorium?> GetByNameAsync(string name)
+        {
+            var result = await _context.Auditoriums.FirstOrDefaultAsync(a => a.Name == name);
+
+            return result;
+        }
+
         public async Task<Auditorium> AddAsync(Auditorium auditorium)
         {
             await _context.Auditoriums.AddAsync(auditorium);
