@@ -12,5 +12,8 @@
 
         public virtual ICollection<AuditoriumService> AuditoriumServices { get; set; }
             = new List<AuditoriumService>();
+
+        public virtual ICollection<AuditoriumReserve> Reserves { get; set; }
+            = new List<AuditoriumReserve>();
     }
 }

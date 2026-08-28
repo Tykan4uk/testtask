@@ -41,6 +41,10 @@ namespace Infrastructure.Configurations
 
             builder.HasIndex(e => e.Name).IsUnique();
 
+            builder.HasMany(x => x.Reserves)
+                .WithOne(x => x.Auditorium)
+                .HasForeignKey(x => x.AuditoriumId);
+
             builder.HasData(_initialData);
         }
     }
