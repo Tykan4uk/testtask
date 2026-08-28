@@ -37,6 +37,10 @@ namespace Infrastructure.Configurations
 
             builder.Property(e => e.Id).ValueGeneratedOnAdd();
 
+            builder.Property(e => e.Name).HasMaxLength(100);
+
+            builder.HasIndex(e => e.Name).IsUnique();
+
             builder.HasData(_initialData);
         }
     }
