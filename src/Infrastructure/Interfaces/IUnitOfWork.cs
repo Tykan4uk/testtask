@@ -3,7 +3,9 @@
     public interface IUnitOfWork
     {
         IAuditoriumRepository Auditoriums { get; }
-        IAuditoriumReserveRepository AuditoriumReservs { get; }
+        IAuditoriumReserveRepository AuditoriumReserves { get; }
+        IAuditoriumServiceRepository AuditoriumServices { get; }
+        ITimeRateRepository TimeRates { get; }
 
         Task<int> SaveChangesAsync();
     }

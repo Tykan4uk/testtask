@@ -1,5 +1,6 @@
 ﻿using Domain.Entities;
 using Infrastructure.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories
 {
@@ -11,11 +12,22 @@ namespace Infrastructure.Repositories
         {
             _context = context;
         }
-        public async Task<AuditoriumReserve> AddAsync(AuditoriumReserve auditoriumReserve)
-        {
-            await _context.AuditoriumReserves.AddAsync(auditoriumReserve);
 
-            return auditoriumReserve;
+        public async Task<bool> IsBusyAsync(Guid auditoriumId, DateTime start, DateTime end)
+        {
+            var result = await _context.AuditoriumReserves.AnyAsync(x =>
+                    x.AuditoriumId == auditoriumId &&
+                    x.DateTime < end &&
+                    x.EndDateTime > start);
+
+            return result;
+        }
+
+        public async Task<AuditoriumReserve> AddAsync(AuditoriumReserve reserve)
+        {
+            await _context.AuditoriumReserves.AddAsync(reserve);
+
+            return reserve;
         }
     }
 }

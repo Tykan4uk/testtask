@@ -27,6 +27,26 @@ namespace Infrastructure.Repositories
             return result;
         }
 
+        public async Task<Auditorium?> GetByIdAsync(Guid id)
+        {
+            var result = await _context.Auditoriums
+                .Include(a => a.AuditoriumServices)
+                .ThenInclude(s => s.Service)
+                .FirstOrDefaultAsync(a => a.Id == id);
+
+            return result;
+        }
+
+        public async Task<List<Auditorium>> GetFreeAuditoriumsAsync(DateTime start, DateTime end, int capacity)
+        {
+            var result = await _context.Auditoriums
+                .Where(a => a.Capacity >= capacity 
+                    && !a.Reserves.Any(r => r.DateTime < end && r.EndDateTime > start))
+                .ToListAsync();
+
+            return result;
+        }
+
         public async Task<Auditorium> AddAsync(Auditorium auditorium)
         {
             await _context.Auditoriums.AddAsync(auditorium);

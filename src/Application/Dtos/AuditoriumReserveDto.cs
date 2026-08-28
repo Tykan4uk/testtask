@@ -9,5 +9,7 @@
         public DateTime DateTime { get; set; }
 
         public TimeSpan Duration { get; set; }
+
+        public int TotalPrice { get; set; }
     }
 }

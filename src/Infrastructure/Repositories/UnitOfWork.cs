@@ -7,7 +7,9 @@ namespace Infrastructure.Repositories
         private readonly TestTaskDbContext _context;
 
         private IAuditoriumRepository? _auditoriums;
-        private IAuditoriumReserveRepository? _auditoriumReservs;
+        private IAuditoriumReserveRepository? _auditoriumReserves;
+        private IAuditoriumServiceRepository? _auditoriumServices;
+        private ITimeRateRepository? _timeRates;
 
         public UnitOfWork(TestTaskDbContext context)
         {
@@ -16,7 +18,9 @@ namespace Infrastructure.Repositories
 
 
         public IAuditoriumRepository Auditoriums => _auditoriums ??= new AuditoriumRepository(_context);
-        public IAuditoriumReserveRepository AuditoriumReservs => _auditoriumReservs ??= new AuditoriumReserveRepository(_context);
+        public IAuditoriumReserveRepository AuditoriumReserves => _auditoriumReserves ??= new AuditoriumReserveRepository(_context);
+        public IAuditoriumServiceRepository AuditoriumServices => _auditoriumServices ??= new AuditoriumServiceRepository(_context);
+        public ITimeRateRepository TimeRates => _timeRates ??= new TimeRateRepository(_context);
 
         public Task<int> SaveChangesAsync() => _context.SaveChangesAsync();
     }

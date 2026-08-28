@@ -20,6 +20,7 @@ namespace Application
             services.AddInfrastructure(configuration);
 
             services.AddTransient<IAuditoriumService, AuditoriumService>();
+            services.AddTransient<IReserveService, ReserveService>();
 
             return services;
         }

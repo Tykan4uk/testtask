@@ -4,6 +4,7 @@
     {
         Failure,
         NotFound,
+        BadRequest,
         Conflict
     }
 }

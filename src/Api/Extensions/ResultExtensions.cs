@@ -14,6 +14,8 @@ namespace Api.Extensions
             {
                 ErrorType.NotFound => controller.NotFound(result.Error),
 
+                ErrorType.BadRequest => controller.BadRequest(result.Error),
+
                 ErrorType.Conflict => controller.Conflict(result.Error),
 
                 _ => controller.StatusCode(StatusCodes.Status500InternalServerError, result.Error)
@@ -28,6 +30,8 @@ namespace Api.Extensions
             return result.Error!.Type switch
             {
                 ErrorType.NotFound => controller.NotFound(result.Error),
+
+                ErrorType.BadRequest => controller.BadRequest(result.Error),
 
                 ErrorType.Conflict => controller.Conflict(result.Error),
 
