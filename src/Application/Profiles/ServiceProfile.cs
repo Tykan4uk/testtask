@@ -23,9 +23,7 @@ namespace Application.Profiles
             CreateMap<AuditoriumService, AuditoriumServiceDto>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dest => dest.ServiceId, opt => opt.MapFrom(src => src.ServiceId))
-                .ForMember(dest => dest.AuditoriumId, opt => opt.MapFrom(src => src.AuditoriumId))
-                .ForMember(dest => dest.ServiceName, opt => opt.MapFrom(src => src.Service.Name))
-                .ForMember(dest => dest.ServicePrice, opt => opt.MapFrom(src => src.Service.Price));
+                .ForMember(dest => dest.AuditoriumId, opt => opt.MapFrom(src => src.AuditoriumId));
         }
     }
 }
