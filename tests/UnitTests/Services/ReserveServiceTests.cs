@@ -258,7 +258,8 @@ public class ReserveServiceTests
             Id = reserve.Id,
             AuditoriumId = auditoriumId,
             DateTime = model.Date,
-            Duration = model.Duration
+            Duration = model.Duration,
+            TotalPrice = 2500
         };
 
         _auditoriumRepositoryMock
@@ -299,7 +300,7 @@ public class ReserveServiceTests
         // Assert
         Assert.True(result.IsSuccess);
 
-        // 2 часа * 1000 * rate 1 = 2000
+        // 2 * 1000 * rate 1 = 2000
         // + 500 = 2500
         Assert.Equal(2500, result.Value.TotalPrice);
 
@@ -458,7 +459,7 @@ public class ReserveServiceTests
 
         _mapperMock
             .Setup(x => x.Map<AuditoriumReserve, AuditoriumReserveDto>(reserve))
-            .Returns(new AuditoriumReserveDto());
+            .Returns(new AuditoriumReserveDto() { TotalPrice = 4000 });
 
         // Act
         var result = await _service.CreateReserveAsync(model);

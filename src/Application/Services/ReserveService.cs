@@ -63,12 +63,13 @@ namespace Application.Services
 
             var reserve = _mapper.Map<AuditoriumReserveModel, AuditoriumReserve>(model);
 
+            reserve.TotalPrice = (int)Math.Round(totalPrice);
+
             await _db.AuditoriumReserves.AddAsync(reserve);
 
             await _db.SaveChangesAsync();
 
             var dto = _mapper.Map<AuditoriumReserve, AuditoriumReserveDto>(reserve);
-            dto.TotalPrice = (int)Math.Round(totalPrice);
 
             return Result<AuditoriumReserveDto>.Success(dto);
         }
