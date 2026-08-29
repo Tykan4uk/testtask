@@ -3,6 +3,7 @@ using System;
 using Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(TestTaskDbContext))]
-    partial class TestTaskDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260829082700_AddUsers")]
+    partial class AddUsers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -247,15 +250,6 @@ namespace Infrastructure.Migrations
                         .IsUnique();
 
                     b.ToTable("UserInfos");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("11111111-1111-1111-1111-111111111111"),
-                            Email = "admin@email.com",
-                            Password = "AQAAAAIAAYagAAAAEHq+Bqv0k+G1nZ915gjGtJA17bcsK/wm8aROVZF5aVAGvDcTvZ+L8G1R4n6eYv4+ww==",
-                            UserName = "admin"
-                        });
                 });
 
             modelBuilder.Entity("Domain.Entities.AuditoriumReserve", b =>
