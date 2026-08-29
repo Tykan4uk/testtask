@@ -30,6 +30,5 @@ dotnet tool install --global dotnet-ef
 dotnet ef database update --project src\Api
 ```
 
-For connection to API swagger use http://localhost:8080/swagger
--->
+For connection to API swagger use http://localhost:8080/swagger \
 For connection to database UI use http://localhost:5050
