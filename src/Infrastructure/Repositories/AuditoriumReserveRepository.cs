@@ -29,5 +29,16 @@ namespace Infrastructure.Repositories
 
             return reserve;
         }
+
+        public async Task<List<AuditoriumReserve>> GetByPeriodAsync(DateTime from, DateTime to)
+        {
+            return await _context.AuditoriumReserves
+                .Include(x => x.Auditorium)
+                .Include(x => x.Services)
+                    .ThenInclude(x => x.AuditoriumService)
+                        .ThenInclude(x => x.Service)
+                .Where(x => x.DateTime < to && x.EndDateTime > from)
+                .ToListAsync();
+        }
     }
 }

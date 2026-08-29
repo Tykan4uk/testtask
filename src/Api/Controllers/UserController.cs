@@ -42,7 +42,7 @@ namespace Api.Controllers
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns>Token for authorization in system</returns>
         [HttpPost("login")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(LoginModel))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(LoginDto))]
         [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(Error))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(Error))]
         public async Task<IActionResult> Login([FromBody] LoginModel request, CancellationToken cancellationToken)
