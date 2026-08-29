@@ -11,6 +11,19 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: testtask-api
+    ports:
+      - "8080:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: "Host=postgres;Port=5432;Database=testtask;Username=postgres;Password=postgres"
+    depends_on:
+      - postgres
+
   pgadmin_ui:
     image: dpage/pgadmin4
     container_name: my_pgadmin
