@@ -12,6 +12,8 @@
 
         public Auditorium Auditorium { get; set; }
 
+        public int TotalPrice { get; set; }
+
         public virtual ICollection<AuditoriumReserveService> Services { get; set; }
             = new List<AuditoriumReserveService>();
 

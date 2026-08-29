@@ -13,7 +13,7 @@ namespace Infrastructure.Configurations
                 Id = Guid.Parse("11111111-1111-1111-1111-111111111111"),
                 UserName = "admin",
                 Email = "admin@email.com",
-                Password = "473287F8298DBA7163A897908958F7C0EAE733E25D2E027992EA2EDC9BED2FA8"
+                Password = "473287F8298DBA7163A897908958F7C0EAE733E25D2E027992EA2EDC9BED2FA8" // default password "string"
             }
         ];
 
