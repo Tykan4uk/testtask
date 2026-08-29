@@ -135,4 +135,10 @@
   <data name="ServicesNotAvailable" xml:space="preserve">
     <value>One or more services are not available for this auditorium</value>
   </data>
+  <data name="EmailAlreadyExist" xml:space="preserve">
+    <value>User with that email is already exist</value>
+  </data>
+  <data name="UserNotExistOrIncorrectPassword" xml:space="preserve">
+    <value>User with that email not exist or incorrect password</value>
+  </data>
 </root>

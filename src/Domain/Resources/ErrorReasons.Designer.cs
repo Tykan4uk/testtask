@@ -97,6 +97,15 @@ namespace Domain.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to User with that email is already exist.
+        /// </summary>
+        public static string EmailAlreadyExist {
+            get {
+                return ResourceManager.GetString("EmailAlreadyExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to One or more services are not available for this auditorium.
         /// </summary>
         public static string ServicesNotAvailable {
@@ -111,6 +120,15 @@ namespace Domain.Resources {
         public static string StartTimeBiggerThanEnd {
             get {
                 return ResourceManager.GetString("StartTimeBiggerThanEnd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User with that email not exist or incorrect password.
+        /// </summary>
+        public static string UserNotExistOrIncorrectPassword {
+            get {
+                return ResourceManager.GetString("UserNotExistOrIncorrectPassword", resourceCulture);
             }
         }
     }

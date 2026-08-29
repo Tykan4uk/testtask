@@ -6,6 +6,7 @@
         IAuditoriumReserveRepository AuditoriumReserves { get; }
         IAuditoriumServiceRepository AuditoriumServices { get; }
         ITimeRateRepository TimeRates { get; }
+        IUserInfoRepository UserInfos { get; }
 
         Task<int> SaveChangesAsync();
     }

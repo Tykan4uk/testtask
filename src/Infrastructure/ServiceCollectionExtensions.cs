@@ -14,6 +14,7 @@ namespace Infrastructure
             services.AddScoped<IAuditoriumReserveRepository, AuditoriumReserveRepository>();
             services.AddScoped<IAuditoriumServiceRepository, AuditoriumServiceRepository>();
             services.AddScoped<ITimeRateRepository, TimeRateRepository>();
+            services.AddScoped<IUserInfoRepository, UserInfoRepository>();
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 

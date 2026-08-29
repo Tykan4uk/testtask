@@ -21,6 +21,7 @@ namespace Application
 
             services.AddTransient<IAuditoriumService, AuditoriumService>();
             services.AddTransient<IReserveService, ReserveService>();
+            services.AddTransient<IUserService, UserService>();
 
             return services;
         }

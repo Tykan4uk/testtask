@@ -3,6 +3,7 @@ using Application.Common;
 using Application.Dtos;
 using Application.Interfaces;
 using Application.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
@@ -25,6 +26,7 @@ namespace Api.Controllers
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns>Information about created auditorium</returns>
         [HttpPost("create-auditorium")]
+        [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(AuditoriumDto))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(Error))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(Error))]
@@ -42,6 +44,7 @@ namespace Api.Controllers
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns>Information about updated auditorium</returns>
         [HttpPut("update-auditorium")]
+        [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(AuditoriumDto))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(Error))]
         [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(Error))]
@@ -60,6 +63,7 @@ namespace Api.Controllers
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns>Status of operation</returns>
         [HttpDelete("delete-auditorium/{auditoriumId}")]
+        [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Result))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(Error))]
         [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(Error))]

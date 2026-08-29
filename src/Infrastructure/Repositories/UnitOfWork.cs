@@ -10,6 +10,7 @@ namespace Infrastructure.Repositories
         private IAuditoriumReserveRepository? _auditoriumReserves;
         private IAuditoriumServiceRepository? _auditoriumServices;
         private ITimeRateRepository? _timeRates;
+        private IUserInfoRepository? _userInfos;
 
         public UnitOfWork(TestTaskDbContext context)
         {
@@ -21,6 +22,7 @@ namespace Infrastructure.Repositories
         public IAuditoriumReserveRepository AuditoriumReserves => _auditoriumReserves ??= new AuditoriumReserveRepository(_context);
         public IAuditoriumServiceRepository AuditoriumServices => _auditoriumServices ??= new AuditoriumServiceRepository(_context);
         public ITimeRateRepository TimeRates => _timeRates ??= new TimeRateRepository(_context);
+        public IUserInfoRepository UserInfos => _userInfos ??= new UserInfoRepository(_context);
 
         public Task<int> SaveChangesAsync() => _context.SaveChangesAsync();
     }

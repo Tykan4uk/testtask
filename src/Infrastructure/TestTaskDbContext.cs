@@ -23,6 +23,8 @@ namespace Infrastructure
 
         public virtual DbSet<TimeRate> TimeRates { get; set; }
 
+        public virtual DbSet<UserInfo> UserInfos { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             if (modelBuilder is null)
@@ -41,6 +43,8 @@ namespace Infrastructure
             modelBuilder.ApplyConfiguration(new ServiceConfiguration());
 
             modelBuilder.ApplyConfiguration(new TimeRateConfiguration());
+
+            modelBuilder.ApplyConfiguration(new UserInfoConfiguration());
         }
     }
 }

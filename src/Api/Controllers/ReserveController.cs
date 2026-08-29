@@ -1,13 +1,14 @@
 ﻿using Api.Extensions;
 using Application.Common;
-using Application.Dtos;
 using Application.Interfaces;
 using Application.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("[controller]")]
     public class ReserveController : ControllerBase
     {
