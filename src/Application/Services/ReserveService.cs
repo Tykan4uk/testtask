@@ -96,11 +96,11 @@ namespace Application.Services
                     ? rateEnd
                     : end;
 
-                var hours = (decimal)(segmentEnd - current).TotalHours;
+                var hours = (decimal)Math.Round((segmentEnd - current).TotalHours);
 
                 total += hourlyPrice * hours * rate.Rate;
 
-                current = segmentEnd;
+                current = segmentEnd.AddMinutes(1);
             }
 
             return total;
@@ -110,10 +110,10 @@ namespace Application.Services
         {
             if (rate.StartTime < rate.EndTime)
             {
-                return time >= rate.StartTime && time < rate.EndTime;
+                return time >= rate.StartTime && time <= rate.EndTime;
             }
 
-            return time >= rate.StartTime || time < rate.EndTime;
+            return time >= rate.StartTime || time <= rate.EndTime;
         }
     }
 }
